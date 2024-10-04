@@ -25,7 +25,7 @@ void guessWord(string answer)
     cout << "Type in your guess: ";
     getline(cin, guess);
 
-
+    //Test commit
 }
 
 int main()
