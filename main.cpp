@@ -30,9 +30,43 @@ void guessWord(string answer)
 
 int main()
 {
-    cout << ""; //Introduction to the game
-    cout << ""; //Enter player data
+    string name;
+    char ready;
 
-    //Prompt a game first, then ask if to try again or no. If yes loop, no = exit
+    //Introduction to the game
+    cout << "-------------------------------" << endl;
+    cout << "         Word Scramble         " << endl;
+    cout << "-------------------------------" << endl;
+    cout << "";
+
+    //Input player data to retrieve saved file
+    cout << "\nEnter your name: ";
+    getline(cin, name);
+
+    //Ask the player if he/she is ready
+    cout << "Nice to meet you " << name << ", are you ready to begin? (Y/N): ";
+
+    //Input validation loop
+    do
+    {
+        cin >> ready; // Input ready status
+        ready = static_cast<char>(toupper(ready)); // Keep ready status in uppercase
+
+        switch(ready)
+        {
+        case 'Y': // Do nothing, skip to line 70 for the other functions. just to keep the code clean.
+            cout << "Preparing word..." << endl;
+            break;
+        case 'N': // Exit the program if not ready
+            cout << "Player not ready, exiting the game" << endl;
+            return 0;
+        default: // Input validation, try again.
+            cout << "Invalid choice. Please enter again. (Y/N): ";
+            break;
+        }
+
+    }while(ready != 'Y' && ready != 'N'); //Input validation loop
+
+    //Ask to try again
     return 0;
 }
