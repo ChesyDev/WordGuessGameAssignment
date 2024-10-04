@@ -13,9 +13,14 @@ struct Player
     int totalCorrect; //Total Correct Guess
 };
 
-string scrambleWord()
+string chooseWord()
 {
     ifstream wordFile;
+    return "";
+}
+
+string scrambleWord(string word)
+{
     return "";
 }
 
@@ -37,7 +42,8 @@ int main()
     cout << "-------------------------------" << endl;
     cout << "         Word Scramble         " << endl;
     cout << "-------------------------------" << endl;
-    cout << "";
+    cout << "Welcome to the word scramble game.\n" <<
+        "You will have 3 attempts to guess the word.\n";
 
     //Input player data to retrieve saved file
     cout << "\nEnter your name: ";
@@ -54,7 +60,7 @@ int main()
 
         switch(ready)
         {
-        case 'Y': // Do nothing, skip to line 70 for the other functions. just to keep the code clean.
+        case 'Y': // Do nothing, skip to line 71 for the other functions. just to keep the code clean.
             cout << "Preparing word..." << endl;
             break;
         case 'N': // Exit the program if not ready
@@ -67,6 +73,14 @@ int main()
 
     }while(ready != 'Y' && ready != 'N'); //Input validation loop
 
-    //Ask to try again
+    string answer = chooseWord();
+    string scrambled = scrambleWord(answer);
+    string guess;
+    for (int attempt = 3; attempt >= 0; attempt--)
+    {
+        cout << "Scrambled Word: " << scrambled << endl;
+        cout << "Your guess: ";
+        cin >> guess;
+    }
     return 0;
 }
